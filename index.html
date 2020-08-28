@@ -20,9 +20,8 @@ function openWindow(url,windowName){
   window.opener = self;
   window.close();
 }
-</script>
   </head>
-  <body onLoad='openWindow("hoge.html","myWindow");'>
+  <body>
     <div class="webgl-content">
       <div id="gameContainer" style="width: 960px; height: 540px"></div>
       <div class="footer">
@@ -31,5 +30,6 @@ function openWindow(url,windowName){
         <div class="title">PitchSenseChecker</div>
       </div>
     </div>
+<body onLoad='openWindow("hoge.html","myWindow");'>
   </body>
 </html>
