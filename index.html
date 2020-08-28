@@ -3,27 +3,33 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Unity WebGL Player | Title</title>
+    <title>Unity WebGL Player | PitchSenseChecker</title>
+    <link rel="shortcut icon" href="TemplateData/favicon.ico">
+    <link rel="stylesheet" href="TemplateData/style.css">
+    <script src="TemplateData/UnityProgress.js"></script>
     <script src="Build/UnityLoader.js"></script>
     <script>
-      UnityLoader.instantiate("unityContainer", "Build/GameTitle.json");
+      var gameInstance = UnityLoader.instantiate("gameContainer", "Build/PitchSenseChecker.json", {onProgress: UnityProgress});
     </script>
-    <link rel="stylesheet" href="Build/style.css" type="text/css">
+<script language="JavaScript">
+function openWindow(url,windowName){
+  info = 'toolbar=no,location=no,directories=no,status=no,menubar=no,' +
+   'scrollbars=yes,left=0,top=0,resizable=yes,width=1014,height=740,title=no';
+  var window1 = window.open(url,windowName,info);
+  window1.moveTo(0, 0);
+  window.opener = self;
+  window.close();
+}
   </head>
   <body>
-    <div id="mobile" class="cover"></div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script>
-    var div = document.getElementById('mobile');
-    if (navigator.userAgent.match(/(iPhone|iPad|iPod|Android)/i)){
-      var mobileHeight = $(window).height();
-      var mobileWidth = $(window).width();
-      var tempData = '<center><div id="unityContainer" style="width: '+mobileWidth+'px; height: '+mobileHeight+'px; margin: auto"></div></center>'
-      div.innerHTML = tempData;
-    }
-    else {
-      div.innerHTML = '<center><div id="unityContainer" style="width: 360px; height: 640px; margin: auto"></div></center>';
-    }
-    </script>
+    <div class="webgl-content">
+      <div id="gameContainer" style="width: 960px; height: 540px"></div>
+      <div class="footer">
+        <div class="webgl-logo"></div>
+        <div class="fullscreen" onclick="gameInstance.SetFullscreen(1)"></div>
+        <div class="title">PitchSenseChecker</div>
+      </div>
+    </div>
+<body onLoad='openWindow("hoge.html","myWindow");'>
   </body>
 </html>
